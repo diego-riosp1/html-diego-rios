@@ -1,5 +1,30 @@
-h1 {
+p {
   color: red;
   font-size: 100px;
   text-align: center;
+  background-color: blue;
 }
+
+#echavarria {
+  color: red;
+  font-size: 100px;
+  text-align: center;
+  background-color: blue;
+}
+
+#londono {
+  color: pink;
+  font-size: 50px;
+  text-align: right;
+  background-color: brown;
+}
+/*  TAREA:
+  1. Dar estilo a todos los h3 centrado, con color de fondo, color de letras,
+  tamaño de 20 pixeles.
+
+  2. Dar estilo a un párrafo centrado y con color de letra azul
+
+  3. Dar estilo a otro párrafo diferente alineado a la derecha y con color 
+  de letra verde
+
+*/
