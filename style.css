@@ -1,4 +1,11 @@
-#prueba {
-  text-shadow: 15px 15px red;
-  text-transform: uppercase;
+#myPlot {
+  width: 100%;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+#line {
+  text-align: center;
 }
