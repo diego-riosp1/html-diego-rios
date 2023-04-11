@@ -37,11 +37,17 @@ function linearRegression(values_x, values_y) {
   return [m, b, result_values_y];
 }
 
-months = [1, 2, 3, 4, 5];
-kwhs = [240, 250, 274, 250, 300];
-l = linearRegression(months, kwhs);
+//For kWh vs Month
+const months = [1, 2, 3, 4, 5];
+const kwhs = [240, 250, 274, 250, 300];
+var l = linearRegression(months, kwhs);
 
-const trace1 = {
+//For Residents vs kWh
+const residents = [1, 2, 3, 5, 5, 6, 3];
+const kWhs = [240, 250, 274, 260, 210, 300, 260];
+var r = linearRegression(residents, kWhs);
+
+const trace11 = {
   x: months,
   y: kwhs,
   mode: "markers",
@@ -52,7 +58,7 @@ const trace1 = {
   name: "Real consume"
 };
 
-const trace2 = {
+const trace21 = {
   x: months,
   y: l[2],
   mode: "scatter",
@@ -68,14 +74,57 @@ const trace2 = {
   name: "Linear Regression"
 };
 
-const layout = {
-  xaxis: { range: [0, 6], title: "Month" },
-  yaxis: { range: [0, 400], title: "kWh" }
+const trace12 = {
+  x: residents,
+  y: kWhs,
+  mode: "markers",
+  marker: {
+    color: "red",
+    size: 8
+  },
+  name: "Real consume"
 };
 
-var data = [trace2, trace1];
+const trace22 = {
+  x: residents,
+  y: r[2],
+  mode: "scatter",
+  marker: {
+    color: "gray",
+    size: 8
+  },
+  line: {
+    dash: "dashdot",
+    color: "gray",
+    width: 1
+  },
+  name: "Linear Regression"
+};
 
-Plotly.newPlot("myPlot", data, layout);
+const layout1 = {
+  xaxis: { title: "Month", autorange: true},
+  yaxis: { title: "kWh", autorange: true}
+};
+const layout2 = {
+  xaxis: { title: "Residents", autorange: true},
+  yaxis: { title: "kWh", autorange: true}
+};
+
+
+var data1 = [trace21, trace11];
+var data2 = [trace22, trace12];
+
+Plotly.newPlot("myPlot1", data1, layout1);
+Plotly.newPlot("myPlot2", data2, layout2);
+
+var m1 = parseFloat(l[0]).toFixed(2);
+var b1 = parseFloat(l[1]).toFixed(2);
+var m2 = parseFloat(r[0]).toFixed(2);
+var b2 = parseFloat(r[1]).toFixed(2);
+
 document.getElementById(
-  "line"
-).innerHTML = `The regression equation is given by $y=${l[0]}x+${l[1]}$.`;
+  "eqn1"
+).innerHTML = `The regression equation is given by $y=${m1}x+${b1}.$`;
+document.getElementById(
+  "eqn2"
+).innerHTML = `The regression equation is given by $y=${m2}x+${b2}.$`;
