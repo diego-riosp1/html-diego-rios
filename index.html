@@ -20,6 +20,36 @@
   </header>
   <body>
 
+    <div class="tab">
+      <button class="tablinks"
+      onclick="openTab(event, 'tab1')"
+      id="tab1-button">First tab</button>
+      <button class="tablinks"
+      onclick="openTab(event, 'tab2')"
+      id="tab2-button">Second tab</button>
+      <button class="tablinks"
+      onclick="openTab(event, 'tab3')"
+      id="tab3-button">Third tab</button>
+    </div>
+    
+    <!-- Tab content -->
+    <div id="tab1" class="tabcontent"></div>
+    <div id="tab2" class="tabcontent"></div>
+    <div id="tab3" class="tabcontent"></div>
+    <script src="js/tabs.js"></script>
+  
+    <script> 
+      const texts = ["tab1","tab2","tab3"];
+      for (let i = 0; i < texts.length; i++) {
+        $("#"+texts[i]+"-button").click(function() {
+          $("#"+texts[i]).load("html/"+texts[i]+".html");
+        });
+      };
+    </script>
+  
+    <script>
+      $("#tab1-button").click();
+    </script>
 
 
   <section>
@@ -28,41 +58,5 @@
     <li>Linear regression</li>
     <li></li>
     </article>
-
-    <article>
-      <h3>Linear regression: kWh vs Month</h3>
-      <p>This second part of the project must be done individual
-        For each plot, you must show evidence about your bill house public services to proof that your information is true.
-      </p>
-      <div id="myPlot1"></div>
-      <p id="eqn1"></p>
-    </article>
-
-    <article>
-      <h5>About the observed behavior</h5>
-      <p>According to the collected data from the plot, explain why the graphic displays that behavior in terms of:
-        <li>The increasement and decreasement of the regression</li>
-        <li>The relation among the facts regarding the colors.</li>
-        <li>A conclusion about your own interpretation on how you should reduce the consumption of electric energy</li>
-      </p>
-    </article>
-
-    <article>
-      <h3>Linear regression: Residents vs kWh</h3>
-      <div id="myPlot2"></div>
-      <p id="eqn2"></p>
-    </article>
-
-    <article>
-      <h5>About the observed behavior</h5>
-      <p>According to the collected data from the plot, explain why the graphic displays that behavior in terms of:
-        <li>The increasement and decreasement of the regression</li>
-        <li>The relation among the facts regarding the colors.</li>
-        <li>A conclusion about your own interpretation on how you should reduce the consumption of electric energy</li>
-      </p>
-    </article>
-
-  </section>
-    <script src="scripts/regression.js"></script>
   </body>
 </html>
