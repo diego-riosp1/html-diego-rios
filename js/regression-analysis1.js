@@ -7,7 +7,7 @@ function linearRegression(values_x, values_y) {
   var x = 0;
   var y = 0;
   var values_length = values_x.length;
-  if (values_length != values_y.length) {
+  if (values_length !== values_y.length) {
     throw new Error(
       "The parameters values_x and values_y need to have same size!"
     );
@@ -55,7 +55,7 @@ const trace11 = {
     color: "red",
     size: 8
   },
-  name: "Real consume"
+  name: "True consume"
 };
 
 const trace21 = {
@@ -82,7 +82,7 @@ const trace12 = {
     color: "red",
     size: 8
   },
-  name: "Real consume"
+  name: "True consume"
 };
 
 const trace22 = {
@@ -102,20 +102,19 @@ const trace22 = {
 };
 
 const layout1 = {
-  xaxis: { title: "Month", autorange: true},
-  yaxis: { title: "kWh", autorange: true}
+  xaxis: { title: "Month", autorange: true },
+  yaxis: { title: "kWh", autorange: true }
 };
 const layout2 = {
-  xaxis: { title: "Residents", autorange: true},
-  yaxis: { title: "kWh", autorange: true}
+  xaxis: { title: "Residents", autorange: true },
+  yaxis: { title: "kWh", autorange: true }
 };
-
 
 var data1 = [trace21, trace11];
 var data2 = [trace22, trace12];
 
-Plotly.newPlot("myPlot1", data1, layout1);
-Plotly.newPlot("myPlot2", data2, layout2);
+Plotly.newPlot("analysis1Plot1", data1, layout1);
+Plotly.newPlot("analysis1Plot2", data2, layout2);
 
 var m1 = parseFloat(l[0]).toFixed(2);
 var b1 = parseFloat(l[1]).toFixed(2);
@@ -123,8 +122,8 @@ var m2 = parseFloat(r[0]).toFixed(2);
 var b2 = parseFloat(r[1]).toFixed(2);
 
 document.getElementById(
-  "eqn1"
+  "analysis1Eqn1"
 ).innerHTML = `The regression equation is given by $y=${m1}x+${b1}.$`;
 document.getElementById(
-  "eqn2"
+  "analysis1Eqn2"
 ).innerHTML = `The regression equation is given by $y=${m2}x+${b2}.$`;
