@@ -38,8 +38,8 @@ function linearRegression(values_x, values_y) {
 }
 
 //For kWh vs Month
-const months = [1, 2, 3, 4, 5];
-const kwhs = [240, 250, 274, 250, 300];
+const months = ["November", "December", "January", "February", "March"];
+const kwhs = [104, 100, 115, 119, 122];
 var l = linearRegression(months, kwhs);
 
 //For Residents vs kWh
